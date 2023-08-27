@@ -14,7 +14,7 @@ import {
   BarChart,
   Assignment,
 } from "@mui/icons-material";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import { Link } from "react-router-dom";
 
 interface IItem {
   label: string;
