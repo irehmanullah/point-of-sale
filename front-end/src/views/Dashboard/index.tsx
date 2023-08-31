@@ -1,7 +1,12 @@
-import React from "react";
+import { Container } from "@mui/material";
+import FinancialSummary from "./FinancialSummary";
 
 const Dashboard = () => {
-  return <h1>Dashboard</h1>;
+  return (
+    <Container className="check">
+      <FinancialSummary />
+    </Container>
+  );
 };
 
 export default Dashboard;

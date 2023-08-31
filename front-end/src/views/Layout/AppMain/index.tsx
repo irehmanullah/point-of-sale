@@ -8,6 +8,18 @@ import PageNotFound from "src/views/Components/PageNotFound";
 import Layout from "../Layout";
 import Dashboard from "src/views/Dashboard";
 import Products from "src/views/Client/Inventory/Products/Products";
+import { ThemeProvider, createTheme } from "@mui/material";
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#f44336",
+    },
+    secondary: {
+      main: "#012641",
+    },
+  },
+});
 
 const AppMain = () => {
   const appRoutes = [
@@ -16,22 +28,24 @@ const AppMain = () => {
   ];
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <Routes>
-        <Route path="*" element={<PageNotFound />} />
-        <Route path="/" element={<Navigate to="/login" replace />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/forgotPassword" element={<ForgotPassword />} />
+    <ThemeProvider theme={theme}>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          <Route path="*" element={<PageNotFound />} />
+          <Route path="/" element={<Navigate to="/login" replace />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/forgotPassword" element={<ForgotPassword />} />
 
-        <Route path="/" element={<Layout />}>
-          <Route path="/" element={<Navigate to="/dashboard" replace />} />
-          {/* @ts-ignore */}
-          {appRoutes.map(({ path, Component, name }: any) => (
-            <Route path={path} key={uuid()} element={Component} />
-          ))}
-        </Route>
-      </Routes>
-    </Suspense>
+          <Route path="/" element={<Layout />}>
+            <Route path="/" element={<Navigate to="/dashboard" replace />} />
+            {/* @ts-ignore */}
+            {appRoutes.map(({ path, Component, name }: any) => (
+              <Route path={path} key={uuid()} element={Component} />
+            ))}
+          </Route>
+        </Routes>
+      </Suspense>
+    </ThemeProvider>
   );
 };
 
