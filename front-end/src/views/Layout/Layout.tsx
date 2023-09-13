@@ -139,7 +139,7 @@ export default function Dashboard() {
             px: [1],
           }}
         >
-          <IconButton onClick={toggleDrawer}>
+          <IconButton onClick={toggleDrawer} color="primary">
             <ChevronLeftIcon />
           </IconButton>
         </Toolbar>
@@ -163,10 +163,8 @@ export default function Dashboard() {
         }}
       >
         <Toolbar />
-        <Container maxWidth="xl" sx={{ mt: 4, mb: 4 }}>
-          <Grid container spacing={3}>
-            <Outlet />
-          </Grid>
+        <Container maxWidth="xl" sx={{ my: 1 }}>
+          <Outlet />
           <Copyright sx={{ pt: 4 }} />
         </Container>
       </Box>
